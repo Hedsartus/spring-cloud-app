@@ -1,0 +1,48 @@
+version: '2.1'
+services:
+  app-server:
+    container_name: app-server
+    build: ./app-server/
+    ports:
+      - "8081:8081"
+  eservice:
+    container_name: eservice
+    build: ./service-data-entities/
+    ports:
+      - "0:80"
+    environment:
+      EUREKA_CLIENT_SERVICE-URL_DEFAULTZONE: http://app-server:8081/eureka
+      APP_CONNECT_ADRESS: http://gateway:8082
+  gateway:
+    container_name: gateway
+    build: ./gateway/
+    ports:
+      - "8082:8082"
+    environment:
+      EUREKA_CLIENT_SERVICE-URL_DEFAULTZONE: http://app-server:8081/eureka
+      SPRING_R2DBC_URL: r2dbc:postgresql://database:5432/postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_USER: postgres
+      SPRING_LIQUIBASE_URL: jdbc:postgresql://database:5432/postgres
+      SPRING_DATA_REDIS_HOST: redis
+  database:
+    container_name: "database"
+    image: "postgres:latest"
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_USER: postgres
+  redis:
+    container_name: redis
+    image: "redis:latest"
+    ports:
+      - "6379:6379"
+
+
+
+
+
+
+
+
