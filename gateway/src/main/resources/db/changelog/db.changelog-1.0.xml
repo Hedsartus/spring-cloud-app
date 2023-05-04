@@ -46,30 +46,4 @@
                                  referencedColumnNames="id"
                                  referencedTableName="users"/>
     </changeSet>
-
-    <changeSet id="1.0.3" author="cofilenko">
-        <insert tableName="users">
-            <column name="login" value="user"/>
-            <column name="password" value="$2a$12$tiR.M4/eMQ/h.pwKKe.r5Oi/xZEgxuLln66xG3iTN6qOfyV1f8QxK"/>
-        </insert>
-    </changeSet>
-
-    <changeSet id="1.0.4" author="cofilenko">
-        <insert tableName="entities">
-            <column name="id_user" value="1"/>
-            <column name="title" value="title 1"/>
-        </insert>
-        <insert tableName="entities">
-            <column name="id_user" value="1"/>
-            <column name="title" value="title 2"/>
-        </insert>
-        <insert tableName="entities">
-            <column name="id_user" value="1"/>
-            <column name="title" value="title 3"/>
-        </insert>
-        <insert tableName="entities">
-            <column name="id_user" value="1"/>
-            <column name="title" value="title 4"/>
-        </insert>
-    </changeSet>
 </databaseChangeLog>

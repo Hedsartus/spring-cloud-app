@@ -1,4 +1,4 @@
-package ru.filenko.gateway.services;
+package ru.filenko.gateway.services.impl;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
